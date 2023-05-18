@@ -11,7 +11,7 @@ const userSchema = new Schema<IUser, UserModelType, IUserMethod>({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
   },
-  age: { type: Number, required: true }, // capital letter type
+  age: { type: Number, required: true }, // capital letter type // for mongoose
   address: { type: String },
   isVoter: { type: Boolean, required: true },
   gender: { type: String, enum: ["male", "female"], required: true },
