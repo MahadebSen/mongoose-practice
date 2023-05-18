@@ -1,5 +1,6 @@
-// Step 1: Interface ------------------------------
+import { HydratedDocument, Model } from "mongoose";
 
+// Step 1: Interface ------------------------------
 export interface IUser {
   name: {
     firstName: string; // small letter type
@@ -11,7 +12,12 @@ export interface IUser {
   gender: "male" | "female";
 }
 
-// Custom method step: 1 --------------
+// Custom instance method step: 1 --------------
 export interface IUserMethod {
   fullName(): string;
+}
+
+// Statics step: 1 -------------------------------------
+export interface IUserStaticModel extends Model<IUser, {}, IUserMethod> {
+  getVoterUser(): Promise<HydratedDocument<IUser, IUserMethod>>;
 }
